@@ -1,21 +1,28 @@
 package readability;
 
+import readability.Regex.SentenceRegex;
+import readability.Regex.WordRegex;
+import readability.calculate.AverageWords;
+import readability.io.input.UserInputManager;
+
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner SCANNER = new Scanner(System.in);
-        String input = SCANNER.nextLine();
+        // Get user input
+        String input = UserInputManager.getUserInputString();
 
-        char[] symbols = input.toCharArray();
+        double average = AverageWords.averageWordCount(input);
 
-        int symbolCount = symbols.length;
-
-        if (symbolCount <= 100) {
+        if (average <= 10) {
             System.out.println("EASY");
         } else {
             System.out.println("HARD");
         }
+
+        UserInputManager.closeScanner();
 
     }
 }
