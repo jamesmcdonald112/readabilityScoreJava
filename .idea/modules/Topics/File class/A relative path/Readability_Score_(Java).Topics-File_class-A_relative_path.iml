@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":Topics-File_class-A_relative_path" external.linked.project.path="$MODULE_DIR$/../../../../../Topics/File class/A relative path" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="Readability Score (Java)" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../../Topics/File class/A relative path">
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/File class/A relative path/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/File class/A relative path/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/File class/A relative path/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="c94d9a7a-2313-4ca8-8e48-024cde0f0579" />
+  </component>
+</module>

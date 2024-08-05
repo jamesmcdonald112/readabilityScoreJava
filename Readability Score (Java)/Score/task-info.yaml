@@ -1,7 +1,7 @@
 type: edu
 custom_name: Score!
 files:
-  - name: src/readability/Main.java
+  - name: src/readability/main/Main.java
     visible: true
     text: |
       package readability;
@@ -211,6 +211,134 @@ files:
           }
       }
     learner_created: false
+  - name: src/readability/Regex/SentenceRegex.java
+    visible: true
+    text: |
+      package readability.Regex;
+      
+      public class SentenceRegex {
+          // INSTANCE VARIABLES
+          private static String sentenceRegex ="[.?!]";
+      
+          // GETTERS AND SETTERS
+          public static String getSentenceRegex() {
+              return sentenceRegex;
+          }
+      
+          public static void setSentenceRegex(String sentenceRegex) {
+              SentenceRegex.sentenceRegex = sentenceRegex;
+          }
+      }
+    learner_created: true
+  - name: src/readability/text/TextProperties.java
+    visible: true
+    text: |
+      package readability.calculate;
+      
+      import readability.Regex.SentenceRegex;
+      import readability.Regex.WordRegex;
+      
+      import java.util.regex.Matcher;
+      import java.util.regex.Pattern;
+      
+      public class AverageWords {
+      
+          public static double averageWordCount(String text) {
+              // Create regex for sentence end and for defining words.
+              String sentenceRegex = SentenceRegex.getSentenceRegex();
+      
+              // Split test into sentences
+              String[] sentences = text.split(sentenceRegex);
+      
+              // Define word pattern
+              Pattern wordPattern = Pattern.compile(WordRegex.getWordRegex());
+      
+              // Total sentences and total words
+              int totalSentences = sentences.length;
+              int totalWords = 0;
+      
+              // Count each word in each sentence
+              for(String sentence : sentences) {
+                  // create matcher object for each sentence to find words that match the pattern.
+                  Matcher matcher = wordPattern.matcher(sentence);
+      
+                  // when a match is found, total words increase.
+                  while (matcher.find()) {
+                      totalWords++;
+                  }
+              }
+      
+              return (double) totalWords / totalSentences;
+          }
+      }
+    learner_created: true
+  - name: src/readability/Regex/WordRegex.java
+    visible: true
+    text: |
+      package readability.Regex;
+      
+      public class WordRegex {
+          // INSTANCE VARIABLES
+          private static String wordRegex = "[a-zA-Z0-9]+";
+      
+          // GETTERS AND SETTERS
+      
+      
+          public static String getWordRegex() {
+              return wordRegex;
+          }
+      
+          public static void setWordRegex(String wordRegex) {
+              WordRegex.wordRegex = wordRegex;
+          }
+      }
+    learner_created: true
+  - name: src/readability/io/input/UserInputManager.java
+    visible: true
+    text: |
+      package readability.io.input;
+      
+      import java.util.Scanner;
+      
+      public class UserInputManager {
+          // INSTANCE VARIABLES
+          private static Scanner SCANNER = new Scanner(System.in);
+      
+          /**
+           * Returns the user input as a string.
+           *
+           * @return The user input as a string.
+           */
+          public static String getUserInputString() {
+              return SCANNER.nextLine();
+          }
+      
+          /**
+           * Closes the scanner.
+           */
+          public static void closeScanner() {
+              SCANNER.close();
+          }
+      }
+    learner_created: true
+  - name: src/readability/calculate/AutomatedReadabilityIndex.java
+    visible: true
+    learner_created: true
+  - name: src/readability/text/TextManager.java
+    visible: true
+    learner_created: true
+  - name: src/readability/file/FileUtils.java
+    visible: true
+    learner_created: true
+  - name: src/readability/commandLine/CommandLineValidator.java
+    visible: true
+    learner_created: true
+  - name: src/readability/file/FileValidator.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5264#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 05 Aug 2024 19:33:13 UTC"
 record: -1

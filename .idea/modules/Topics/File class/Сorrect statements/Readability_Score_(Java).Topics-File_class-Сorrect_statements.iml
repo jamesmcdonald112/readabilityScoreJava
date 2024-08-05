@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":Topics-File_class-Сorrect_statements" external.linked.project.path="$MODULE_DIR$/../../../../../Topics/File class/Сorrect statements" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="Readability Score (Java)" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../../Topics/File class/Сorrect statements">
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/File class/Сorrect statements/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/File class/Сorrect statements/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../Topics/File class/Сorrect statements/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="6c597ece-d2a6-4985-9017-3e58ee374bb7" />
+  </component>
+</module>

@@ -1,2 +1,12 @@
 
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÀÝµþÿÿÿÿ8ë”Á¥‘2
+^
+java:S1128"<Remove this unused import 'readability.Regex.SentenceRegex'.(’žÝûÿÿÿÿ8‚«šø‘2
+U
+java:S1128"8Remove this unused import 'readability.Regex.WordRegex'.(»¸öÅ8‚«šø‘2
+P
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8‚«šø‘2
+Q
+java:S1128	"4Remove this unused import 'java.util.regex.Matcher'.(ëÅ›ã8‚«šø‘2
+V
+java:S1128
+"4Remove this unused import 'java.util.regex.Pattern'.(Ã•…Äúÿÿÿÿ8‚«šø‘2
