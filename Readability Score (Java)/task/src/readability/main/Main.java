@@ -4,6 +4,7 @@ import readability.commandLine.CommandLineValidator;
 import readability.file.FileUtils;
 import readability.file.FileValidator;
 import readability.io.input.UserInputManager;
+import readability.menu.ScoreChoiceMenu;
 import readability.text.TextManager;
 
 import java.io.File;
@@ -40,14 +41,22 @@ public class Main {
         }
 
         // Create a TextManager object with the file content (Stores all info for the text file)
-        TextManager text = new TextManager(fileContent);
+        TextManager textManager
+                = new TextManager(fileContent);
+
+        System.out.println("The text is:");
+        System.out.println(textManager.getText());
+        System.out.println("");
 
         // Print the text info
-        System.out.println("Words: " + text.getTotalWords());
-        System.out.println("Sentences: " + text.getTotalSentences());
-        System.out.println("Characters: " + text.getTotalCharacters());
-        System.out.println("The score is: " + text.getScore());
-        System.out.println("This text should be understood by " + text.getAgeGroup() + " year-olds.");
+        System.out.println("\nWords: " + textManager.getTotalWords());
+        System.out.println("Sentences: " + textManager.getTotalSentences());
+        System.out.println("Characters: " + textManager.getTotalCharacters());
+        System.out.println("Syllables: " + textManager.getTotalSyllables());
+        System.out.println("Polysyllables: " + textManager.getPolySyllables());
+
+        ScoreChoiceMenu scoreChoiceMenu = new ScoreChoiceMenu(textManager);
+        scoreChoiceMenu.displayMenu();
 
         UserInputManager.closeScanner();
 

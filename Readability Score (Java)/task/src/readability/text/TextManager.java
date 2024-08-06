@@ -1,16 +1,18 @@
 package readability.text;
 
 import readability.calculate.AutomatedReadabilityIndex;
+import readability.calculate.FleschKincaid;
+import readability.calculate.PolySyllables;
 
 public class TextManager {
 
     // INSTANCE VARIABLES
     private String text;
     private int totalCharacters;
+    private int totalSyllables;
+    private int polySyllables;
     private int totalWords;
     private int totalSentences;
-    private double score;
-    private String ageGroup;
 
     // CONSTRUCTOR
     public TextManager(String text) {
@@ -38,6 +40,22 @@ public class TextManager {
         this.totalCharacters = totalCharacters;
     }
 
+    public int getTotalSyllables() {
+        return totalSyllables;
+    }
+
+    public void setTotalSyllables(int totalSyllables) {
+        this.totalSyllables = totalSyllables;
+    }
+
+    public int getPolySyllables() {
+        return polySyllables;
+    }
+
+    public void setPolySyllables(int polySyllables) {
+        this.polySyllables = polySyllables;
+    }
+
     public int getTotalWords() {
         return totalWords;
     }
@@ -54,30 +72,12 @@ public class TextManager {
         this.totalSentences = totalSentences;
     }
 
-    public double getScore() {
-        return score;
-    }
-
-    public void setScore(double score) {
-        this.score = score;
-    }
-
-    public String getAgeGroup() {
-        return ageGroup;
-    }
-
-    public void setAgeGroup(String ageGroup) {
-        this.ageGroup = ageGroup;
-    }
-
-
     private void initialiseValues() {
         this.totalCharacters = TextProperties.characterCount(this.text);
+        this.totalSyllables = TextProperties.syllableCount(this.text);
         this.totalWords = TextProperties.wordCount(this.text);
         this.totalSentences =  TextProperties.sentenceCount(this.text);
-        this.score = AutomatedReadabilityIndex.calculateAutomatedReadabilityIndex(totalCharacters
-                , totalWords, totalSentences);
-        this.ageGroup = TextProperties.ageGroupCalculation(score);
+        this.polySyllables = PolySyllables.countPolySyllables(this.text);
     }
 
 

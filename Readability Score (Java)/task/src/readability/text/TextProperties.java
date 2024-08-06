@@ -2,6 +2,7 @@ package readability.text;
 
 import readability.Regex.SentenceRegex;
 import readability.Regex.WordRegex;
+import readability.calculate.Syllables;
 import readability.text.TextManager;
 
 import java.util.Arrays;
@@ -71,56 +72,43 @@ public class TextProperties {
         return sentences.length;
     }
 
-    public static String ageGroupCalculation(double score) {
-        int roundedScore = (int)(Math.ceil(score));
+    public static int syllableCount(String text) {
+        // Clean the text
+        String cleanedText = text.replaceAll("[',]", "");
 
-        System.out.println(roundedScore);
-        switch (roundedScore) {
-            case 1 -> {
-                return "5-6";
-            }
-            case 2 -> {
-                return "6-7";
-            }
-            case 3-> {
-                return "7-8";
-            }
-            case 4 -> {
-                return "8-9";
-            }
-            case 5 -> {
-                return "9-10";
-            }
-            case 6 -> {
-                return "10-11";
-            }
-            case 7 -> {
-                return "11-12";
-            }
-            case 8 -> {
-                return "12-13";
-            }
-            case 9 -> {
-                return "13-14";
-            }
-            case 10 -> {
-                return "14-15";
-            }
-            case 11 -> {
-                return "15-16";
-            }
-            case 12 -> {
-                return "16-17";
-            }
-            case 13 -> {
-                return "17-18";
-            } case 14 -> {
-                return "18-22";
-            }
-            default -> {
-                return "18+";
-            }
+        // Prepare the mather with the regex on the cleaned text
+        String wordRegex = WordRegex.getWordRegex();
+        Pattern pattern = Pattern.compile(wordRegex);
+        Matcher matcher = pattern.matcher(cleanedText);
+
+        int totalSyllables = 0;
+
+        while (matcher.find()) {
+            String word = matcher.group();
+            totalSyllables += Syllables.countSyllables(word);
         }
 
+        return totalSyllables;
+    }
+
+    public static String ageGroupCalculation(double score) {
+        int roundedScore = (int) (Math.ceil(score));
+        return switch (roundedScore) {
+            case 1 -> "6";
+            case 2 -> "7";
+            case 3 -> "8";
+            case 4 -> "9";
+            case 5 -> "10";
+            case 6 -> "11";
+            case 7 -> "12";
+            case 8 -> "13";
+            case 9 -> "14";
+            case 10 -> "15";
+            case 11 -> "16";
+            case 12 -> "17";
+            case 13 -> "18";
+            case 14 -> "22";
+            default -> "18+";
+        };
     }
 }
